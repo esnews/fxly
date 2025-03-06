@@ -6,6 +6,11 @@ const PORT = process.env.PORT || 3000;
 const API_KEY = 'adced65fdeaf4dedcde26f17'; // Replace with your API key
 const BASE_URL = 'https://api.exchangerate-api.com/v4/latest/';
 
+// Health check endpoint
+app.get("/", (req, res) => {
+  res.send("FXly API is running!");
+});
+
 app.get('/convert', async (req, res) => {
   const { from, to, amount } = req.query;
 
